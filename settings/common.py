@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(ROOT_DIR, ...)
-import environ
 import os
 from os.path import dirname, join
 
