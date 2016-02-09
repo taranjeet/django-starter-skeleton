@@ -1,0 +1,9 @@
+# Byte complied files
+*.pyc
+
+# Virtual env
+pyenv/*
+
+# Local git config
+.gitconfig
+
