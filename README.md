@@ -1,7 +1,5 @@
 # {{project_name}}
 
-To generate `SECRET_KEY` use this command
+To generate `SECRET_KEY` run `scripts/generate_secret_key.sh`
 
-```
-$ python -c 'import random; import string; print("".join([random.SystemRandom().choice(string.digits + string.ascii_letters + string.punctuation) for i in range(100)]))'
-```
+
