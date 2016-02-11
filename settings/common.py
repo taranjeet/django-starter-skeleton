@@ -41,7 +41,7 @@ CORE_APPS = (
 THIRD_PARTY_APPS = ()
 
 OUR_APPS = (
-    'base',
+    '{{project_name}}.base',
 )
 
 INSTALLED_APPS = CORE_APPS + OUR_APPS + THIRD_PARTY_APPS
