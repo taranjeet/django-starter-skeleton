@@ -5,9 +5,9 @@ A minimalistic django(1.8) template. A one time setup script is also bundled.
 How to Start?
 
 ```
-$ django-admin.py startproject --template=django-starter-skeleton.zip --extension=py,md,html,sh my_project
+$ django-admin.py startproject --template=https://github.com/TroJan/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh my_project
 $ cd my_project
-$ chmod 755 scripts/configure.sh
+$ chmod -R 755 scripts
 $ ./scripts/configure.sh
 ```
 
