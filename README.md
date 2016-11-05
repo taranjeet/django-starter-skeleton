@@ -13,6 +13,12 @@ $ ./scripts/configure.sh
 
 To generate `SECRET_KEY`, run `scripts/generate_secret_key.sh` and replace it in settings
 
+Packages
+
+* Django 1.8
+
+* [django admin tools](https://github.com/django-admin-tools/django-admin-tools)
+
 
 {% endcomment %}
 
