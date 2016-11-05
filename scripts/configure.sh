@@ -11,23 +11,24 @@ source pyenv/bin/activate
 echo "Installing requirements"
 pip install -r requriements/dev.txt
 
-# before running bower install,
-# make sure {{project_name}}/static/bower_components exists
 
-if [ ! -d "{{project_name}}/static/bower_components" ]; then
-    mkdir -p "{{project_name}}/static/bower_components"
-fi
 
-# create `.bowerrc` dynamically, so that template variable
-# project_name is substituted properly
+if [ -f "bower.json" ]; then
+    # before running bower install,
+    # make sure {{project_name}}/static/bower_components exists
+
+    if [ ! -d "{{project_name}}/static/bower_components" ]; then
+        mkdir -p "{{project_name}}/static/bower_components"
+    fi
+
+    # create `.bowerrc` dynamically, so that template variable
+    # project_name is substituted properly
 
 cat <<'EOF' > ".bowerrc"
 {
     "directory": "{{project_name}}/static/bower_components"
 }
 EOF
-
-if [ -f "bower.json" ]; then
     echo "Running bower install"
     bower install
 fi
