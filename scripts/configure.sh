@@ -11,6 +11,9 @@ source pyenv/bin/activate
 echo "Installing requirements"
 pip install -r requriements/dev.txt
 
+# changing root directory
+cd "src"
+
 # before running collectstatic, make sure that
 # `root_dir/static` exists
 
