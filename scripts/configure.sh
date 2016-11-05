@@ -11,7 +11,14 @@ source pyenv/bin/activate
 echo "Installing requirements"
 pip install -r requriements/dev.txt
 
+# before running collectstatic, make sure that
+# `root_dir/static` exists
 
+mkdir "{{project_name}}/static"
+echo "Creating Static directory"
+if [ ! -d "static" ]; then
+    mkdir "static"
+fi
 
 if [ -f "bower.json" ]; then
     # before running bower install,
@@ -31,13 +38,6 @@ cat <<'EOF' > ".bowerrc"
 EOF
     echo "Running bower install"
     bower install
-fi
-
-# before running collectstatic, make sure that
-# `root_dir/static` exists
-
-if [ ! -d "static" ]; then
-    mkdir "static"
 fi
 
 echo "Collecting static files"
