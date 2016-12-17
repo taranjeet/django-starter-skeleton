@@ -9,7 +9,7 @@ echo "Activating virtual env"
 source pyenv/bin/activate
 
 echo "Installing requirements"
-pip install -r requriements/dev.txt
+pip install -r requirements/dev.txt
 
 # changing root directory
 cd "src"
