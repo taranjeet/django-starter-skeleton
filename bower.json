@@ -1,0 +1,19 @@
+{
+  "name": "{{project_name}}",
+  "version": "0.0.1",
+  "authors": [
+    "Taranjeet Singh <reachtotj@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "{{project_name}}/static/bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
