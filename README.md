@@ -7,7 +7,7 @@ How to Start?
 ```
 django-admin.py startproject --template=https://github.com/TroJan/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json my_project
 cd my_project
-chmod -R 755 scripts
+chmod -R 755 scripts/*
 ./scripts/configure.sh
 ```
 
