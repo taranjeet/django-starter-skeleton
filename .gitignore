@@ -18,3 +18,5 @@ src/static/
 src/*/static/admin
 src/*/static/admin_tools
 src/*/static/bower_components
+
+.DS_Store
