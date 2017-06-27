@@ -1,6 +1,6 @@
 {% comment "This comment section will be deleted in the generated project" %}
 
-A minimalistic django(1.8) template. A one time setup script is also bundled.
+A minimalistic django(1.10) template. A one time setup script is also bundled.
 
 How to Start?
 
@@ -15,9 +15,7 @@ To generate `SECRET_KEY`, run `scripts/generate_secret_key.sh` and replace it in
 
 Packages
 
-* Django 1.8
-
-* [django admin tools](https://github.com/django-admin-tools/django-admin-tools)
+* Django 1.10
 
 
 {% endcomment %}
