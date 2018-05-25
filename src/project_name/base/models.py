@@ -1,12 +1,13 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 class TimeAuditModel(models.Model):
     ''' To track when the record was created and last modified'''
     created_at = models.DateTimeField('Created At',
-        auto_now_add=True)
+                                      auto_now_add=True)
     updated_at = models.DateTimeField('Updated At',
-        auto_now=True)
+                                      auto_now=True)
 
     class Meta:
         abstract = True
@@ -17,7 +18,7 @@ class UserAuditModel(models.Model):
     created_by = models.ForeignKey(User, related_name='created_%(class)s_set',
                                    null=True, blank=True, verbose_name='Created By')
     updated_by = models.ForeignKey(User, related_name='updated_%(class)s_set',
-                                  null=True, blank=True, verbose_name='Updated By')
+                                   null=True, blank=True, verbose_name='Updated By')
 
     class Meta:
         abstract = True
