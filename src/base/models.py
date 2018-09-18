@@ -16,9 +16,11 @@ class TimeAuditModel(models.Model):
 class UserAuditModel(models.Model):
     '''To track who created and last modified the record'''
     created_by = models.ForeignKey(User, related_name='created_%(class)s_set',
-                                   null=True, blank=True, verbose_name='Created By')
+                                   null=True, blank=True, verbose_name='Created By',
+                                   on_delete=models.CASCADE)
     updated_by = models.ForeignKey(User, related_name='updated_%(class)s_set',
-                                   null=True, blank=True, verbose_name='Updated By')
+                                   null=True, blank=True, verbose_name='Updated By',
+                                   on_delete=models.CASCADE)
 
     class Meta:
         abstract = True
