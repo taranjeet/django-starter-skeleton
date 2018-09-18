@@ -14,10 +14,8 @@ pyenv/*
 # Static folders
 src/static/
 
-# admin and bower related static folders
+# admin static folders
 src/*/static/admin
-src/*/static/admin_tools
-src/*/static/bower_components
 
 .DS_Store
 

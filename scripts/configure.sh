@@ -23,26 +23,6 @@ if [ ! -d "static" ]; then
     mkdir "static"
 fi
 
-if [ -f "bower.json" ]; then
-    # before running bower install,
-    # make sure {{project_name}}/static/bower_components exists
-
-    if [ ! -d "{{project_name}}/static/bower_components" ]; then
-        mkdir -p "{{project_name}}/static/bower_components"
-    fi
-
-    # create `.bowerrc` dynamically, so that template variable
-    # project_name is substituted properly
-
-cat <<'EOF' > ".bowerrc"
-{
-    "directory": "{{project_name}}/static/bower_components"
-}
-EOF
-    echo "Running bower install"
-    bower install
-fi
-
 echo "Collecting static files"
 python manage.py collectstatic --noinput
 
