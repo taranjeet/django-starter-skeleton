@@ -11,21 +11,27 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(ROOT_DIR, ...)
+import environ
 import os
-from os.path import dirname, join
+from os.path import dirname, exists, join
 
 ROOT_DIR = dirname(dirname(os.path.abspath(__file__)))
 APP_DIR = join(ROOT_DIR, '{{ project_name }}')
 
+env = environ.Env()
+
+env_file = join(ROOT_DIR, 'settings', 'local.env')
+if exists(env_file):
+    environ.Env.read_env(str(env_file))
+
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = '%d6b@k6k-i&ir!pig2gc98b8uc)lsub@_m-0(3fem%o&4b#y&9'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -81,12 +87,12 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.environ.get('DB_NAME', ''),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', ''),
-        'PORT': os.environ.get('DB_PORT', ''),
+        'ENGINE': env('DJANGO_DATABASE_ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': env('DB_NAME', default=os.path.join(ROOT_DIR, 'db.sqlite3')),
+        'USER': env('DB_USER', default=''),
+        'PASSWORD': env('DB_PASSWORD', default=''),
+        'HOST': env('DB_HOST', default=''),
+        'PORT': env('DB_PORT', default=''),
     }
 }
 
