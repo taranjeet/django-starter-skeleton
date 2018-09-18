@@ -20,3 +20,6 @@ src/*/static/admin_tools
 src/*/static/bower_components
 
 .DS_Store
+
+# Environment
+local.env
