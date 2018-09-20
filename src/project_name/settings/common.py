@@ -10,17 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(ROOT_DIR, ...)
 import environ
 import os
-from os.path import dirname, exists, join
+from os.path import abspath, dirname, exists, join
 
-ROOT_DIR = dirname(dirname(os.path.abspath(__file__)))
-APP_DIR = join(ROOT_DIR, '{{ project_name }}')
+BASE_DIR = dirname(dirname(dirname((abspath(__file__)))))
+PROJECT_DIR = join(BASE_DIR, '{{ project_name }}')
 
 env = environ.Env()
 
-env_file = join(ROOT_DIR, 'settings', 'local.env')
+env_file = join(PROJECT_DIR, 'settings', 'local.env')
 if exists(env_file):
     environ.Env.read_env(str(env_file))
 
@@ -65,7 +64,7 @@ MIDDLEWARE_CLASSES = (
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [join(APP_DIR, 'templates'), ],
+        'DIRS': [join(PROJECT_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +86,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': env('DB_ENGINE', default='django.db.backends.sqlite3'),
-        'NAME': env('DB_NAME', default=os.path.join(ROOT_DIR, 'db.sqlite3')),
+        'NAME': env('DB_NAME', default=os.path.join(BASE_DIR, 'db.sqlite3')),
         'USER': env('DB_USER', default=''),
         'PASSWORD': env('DB_PASSWORD', default=''),
         'HOST': env('DB_HOST', default=''),
@@ -115,10 +114,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = join(ROOT_DIR, 'static')
+STATIC_ROOT = join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
-    join(APP_DIR, 'static'),
+    join(PROJECT_DIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
