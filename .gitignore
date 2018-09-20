@@ -1,5 +1,6 @@
 # Byte complied files
-*.pyc
+__pycache__/
+*.py[cod]
 
 # Virtual env
 pyenv/*
