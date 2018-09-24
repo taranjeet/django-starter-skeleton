@@ -27,6 +27,20 @@ django-admin.py startproject --template=https://github.com/taranjeet/django-star
 django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json my_project
 ```
 
+### Customizations
+
+#### How to add support for mysql
+
+Install [mysqlclient](https://pypi.org/project/mysqlclient/) and libmysqlclient-dev. Configure the following values in your environment.
+
+```
+DB_ENGINE='django.db.backends.mysql'
+DB_NAME='dbname'
+DB_USER='dbuser'
+DB_PASSWORD='dbpass'
+DB_HOST='localhost'
+DB_PORT=3306
+```
 
 {% endcomment %}
 # {{project_name}}
