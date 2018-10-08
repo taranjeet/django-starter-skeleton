@@ -8,9 +8,8 @@ A minimalistic django(2.0) template. A one time setup script is also bundled.
 
 ```
 django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json my_project
-cd my_project
-chmod -R 755 scripts/*
-./scripts/configure.sh
+
+# next look into setup instructions section
 ```
 
 To generate `SECRET_KEY`, run `scripts/generate_secret_key.sh` and replace it in settings
