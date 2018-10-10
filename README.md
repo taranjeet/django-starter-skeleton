@@ -57,7 +57,7 @@ Now do the following to setup project
 ```
 # assuming that the project is already cloned.
 
-cd my_project
+cd {{project_name}}
 
 # one time
 virtualenv -p $(which python3) pyenv
@@ -68,7 +68,7 @@ source pyenv/bin/activate
 pip install -r requirements/dev.txt
 
 # update settings
-cp src/myproject/settings/local.sample.env src/myproject/settings/local.env
+cp src/{{project_name}}/settings/local.sample.env src/{{project_name}}/settings/local.env
 
 # generate a secret key or skip(has a default value) and then replace the value of `SECRET_KEY` in environment file
 ./scripts/generate_secret_key.sh
