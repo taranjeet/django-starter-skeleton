@@ -41,6 +41,48 @@ DB_HOST='localhost'
 DB_PORT=3306
 ```
 
+#### Uwsgi Config
+
+```
+[uwsgi]
+uid = ubuntu
+gid = ubuntu
+
+chdir = /home/ubuntu/demo-app/src
+home = /home/ubuntu/demo-app/pyenv
+module = demoapp.wsgi:application
+env = DJANGO_SETTINGS_MODULE=demoapp.settings.live
+master = true
+processes = 3
+socket = /run/uwsgi/demoapp.sock
+logto = /var/log/uwsgi/demoapp.log
+chown-socket = ubuntu:ubuntu
+chmod-socket = 664
+vacuum = true
+```
+
+#### Nginx Config
+
+```
+server{
+    listen 80;
+    server_name server_ip_or_web_address;
+
+    location / {
+            include uwsgi_params;
+            uwsgi_pass unix:/run/uwsgi/demoapp.sock;
+    }
+
+    location /static {
+            root /home/ubuntu/demo-app/src;
+
+    }
+
+    location /media {
+            root /home/ubuntu/demo-app/src;
+    }
+}
+```
 {% endcomment %}
 # {{project_name}}
 
