@@ -7,7 +7,7 @@ A minimalistic django(2.0) template. A one time setup script is also bundled.
 ### How to Start?
 
 ```
-django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json my_project
+django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json --name=Makefile my_project
 
 # next look into setup instructions section
 ```
@@ -23,7 +23,7 @@ Right now two version of Django namely v1.10(python 2.7) and v2.0(python 3) are 
 django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/django-1.10-python-2.7.zip --extension=py,md,html,sh,json my_project
 
 # for django v2.0
-django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json my_project
+django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json --name=Makefile my_project
 ```
 
 ### Customizations
