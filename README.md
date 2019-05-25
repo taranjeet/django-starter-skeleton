@@ -112,7 +112,7 @@ pip install -r requirements/dev.txt
 # update settings
 cp src/{{project_name}}/settings/local.sample.env src/{{project_name}}/settings/local.env
 
-# generate a secret key or skip(has a default value) and then replace the value of `SECRET_KEY` in environment file
+# generate a secret key or skip(has a default value) and then replace the value of `SECRET_KEY` in environment file(here local.env)
 ./scripts/generate_secret_key.sh
 
 # update relevant variables in environment file
