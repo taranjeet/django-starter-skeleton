@@ -6,7 +6,7 @@ A minimalistic django(2.0) template. A one time setup script is also bundled.
 
 ### How to Start?
 
-```
+```bash
 django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json --name=Makefile my_project
 
 # next look into setup instructions section
@@ -18,7 +18,7 @@ To generate `SECRET_KEY`, run `scripts/generate_secret_key.sh` and replace it in
 
 Right now two version of Django namely v1.10(python 2.7) and v2.0(python 3) are supported. v1.10 is currently referenced via [django-1.10-python-2.7](https://github.com/taranjeet/django-starter-skeleton/tree/django-1.10-python-2.7) branch. v2.0 is the [master](https://github.com/taranjeet/django-starter-skeleton/tree/master) branch.
 
-```
+```bash
 # for django v1.10
 django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/django-1.10-python-2.7.zip --extension=py,md,html,sh,json my_project
 
@@ -96,7 +96,7 @@ First make sure that you have the following installed.
 
 Now do the following to setup project
 
-```
+```bash
 # assuming that the project is already cloned.
 
 cd {{project_name}}
@@ -124,7 +124,7 @@ python manage.py migrate
 
 To access webserver, run the following command
 
-```
+```bash
 cd src
 python manage.py runserver
 ```
