@@ -22,3 +22,6 @@ src/*/static/admin
 
 # Environment
 local.env
+
+# local files, for debugging/todos/ideas
+.ideas.md
