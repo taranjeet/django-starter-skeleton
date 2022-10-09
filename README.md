@@ -7,7 +7,7 @@ A minimalistic django(4.1) template. A one time setup script is also bundled.
 ### How to Start?
 
 ```bash
-django-admin.py startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json --name=Makefile my_project
+django-admin startproject --template=https://github.com/taranjeet/django-starter-skeleton/archive/master.zip --extension=py,md,html,sh,json --name=Makefile my_project
 
 # next look into setup instructions section
 ```
