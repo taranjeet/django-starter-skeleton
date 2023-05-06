@@ -1,5 +1,10 @@
+import uuid
+
 from django.contrib.auth.models import User
+from django.utils.functional import cached_property
 from django.db import models
+
+from .utils import get_short_id
 
 
 class TimeAuditModel(models.Model):
@@ -28,6 +33,40 @@ class UserAuditModel(models.Model):
 
 class AuditModel(TimeAuditModel, UserAuditModel):
     '''To track by who and when was the last record modified'''
+
+    class Meta:
+        abstract = True
+
+
+class UUIDModel(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+
+    @cached_property
+    def get_uuid(self):
+        return self.uuid
+
+    def save(self, *args, **kwargs):
+        if self._state.adding:
+            self.short_id = get_short_id()
+        super(UUIDModel, self).save(*args, **kwargs)
+
+    class Meta:
+        abstract = True
+
+
+class TimeAuditUUIDModel(TimeAuditModel, UUIDModel):
+
+    class Meta:
+        abstract = True
+
+
+class UserAuditUUIDModel(UserAuditModel, UUIDModel):
+
+    class Meta:
+        abstract = True
+
+
+class AuditUUIDModel(AuditModel, UUIDModel):
 
     class Meta:
         abstract = True
